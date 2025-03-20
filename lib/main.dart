@@ -14,7 +14,7 @@ class ShoppingList extends StatefulWidget{
   @override
   ShoppingListState createState()=>ShoppingListState();
 }
-class ShopppingListState extends State<ShoppingList>{
+class ShoppingListState extends State<ShoppingList>{
   //create empty list to store the shopping items
   final List<String>itemsToAdd=[];
   //manage the text editing controller
@@ -42,7 +42,25 @@ void clearList(){
   Widget build(BuildContext context){
   //build the screen
   return Scaffold(
-    appBar: AppBar(title:  Text('Shopping list application',style: TextStyle(fontSize: 20,color: Colors.black,fontWeight: FontWeight.bold),),),
+    appBar: AppBar(title:  Text('Shopping list application',style: TextStyle(fontSize: 20,color: Colors.black,fontWeight: FontWeight.bold),),centerTitle: true,),
+    body: Padding(padding: EdgeInsets.all(10.0),
+    child: Column(
+      children: [
+        Row(
+          children: [
+            Expanded(child:
+            TextField(
+              decoration: InputDecoration(
+                hintText: 'Enter item to add',
+                border: OutlineInputBorder()
+              ),
+            ),
+            ),
+          ],
+        )
+      ],
+    ),
+    )
   );
 }
 }
