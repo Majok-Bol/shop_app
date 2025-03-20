@@ -66,6 +66,7 @@ void clearList(){
 
           Expanded(child: ElevatedButton(onPressed: addItem,style: ElevatedButton.styleFrom(backgroundColor: Colors.green), child: Text('add')),),
           SizedBox(width: 20,),
+
           Expanded(child: ElevatedButton(onPressed: clearList,style:ElevatedButton.styleFrom(backgroundColor: Colors.red),child: Text('Delete')),),
         ],),
 
