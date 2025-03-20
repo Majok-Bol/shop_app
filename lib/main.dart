@@ -6,6 +6,7 @@ class MyApp extends StatelessWidget{
   @override
   Widget build(BuildContext context){
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       home: ShoppingList(),
     );
   }
@@ -35,7 +36,7 @@ void addItem(){
 void clearList(){
   setState(() {
     //clear entire list
-    itemController.clear();
+    itemsToAdd.clear();
   });
 }
 @override
@@ -50,6 +51,7 @@ void clearList(){
           children: [
             Expanded(child:
             TextField(
+              controller: itemController,
               decoration: InputDecoration(
                 hintText: 'Enter item to add',
                 border: OutlineInputBorder()
@@ -65,8 +67,17 @@ void clearList(){
           Expanded(child: ElevatedButton(onPressed: addItem,style: ElevatedButton.styleFrom(backgroundColor: Colors.green), child: Text('add')),),
           SizedBox(width: 20,),
           Expanded(child: ElevatedButton(onPressed: clearList,style:ElevatedButton.styleFrom(backgroundColor: Colors.red),child: Text('Delete')),),
-        ],)
+        ],),
+
+            Expanded(child: ListView.builder(
+              itemCount: itemsToAdd.length,
+                itemBuilder:(context,index){
+                return ListTile(title: Text(itemsToAdd[index]),);
+
+            }))
+
       ],
+
     ),
     ),
   );
