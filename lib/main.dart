@@ -43,7 +43,7 @@ void clearList(){
   //build the screen
   return Scaffold(
     appBar: AppBar(title:  Text('Shopping list application',style: TextStyle(fontSize: 20,color: Colors.black,fontWeight: FontWeight.bold),),centerTitle: true,),
-    body: Padding(padding: EdgeInsets.all(10.0),
+    body: Container(padding: EdgeInsets.all(10.0),
     child: Column(
       children: [
         Row(
@@ -56,11 +56,19 @@ void clearList(){
               ),
             ),
             ),
+
           ],
-        )
+        ),
+        SizedBox(height: 10,),
+        Row(children: [
+
+          Expanded(child: ElevatedButton(onPressed: addItem,style: ElevatedButton.styleFrom(backgroundColor: Colors.green), child: Text('add')),),
+          SizedBox(width: 20,),
+          Expanded(child: ElevatedButton(onPressed: clearList,style:ElevatedButton.styleFrom(backgroundColor: Colors.red),child: Text('Delete')),),
+        ],)
       ],
     ),
-    )
+    ),
   );
 }
 }
