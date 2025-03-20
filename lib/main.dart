@@ -38,4 +38,11 @@ void clearList(){
     itemController.clear();
   });
 }
+@override
+  Widget build(BuildContext context){
+  //build the screen
+  return Scaffold(
+    appBar: AppBar(title:  Text('Shopping list application',style: TextStyle(fontSize: 20,color: Colors.black,fontWeight: FontWeight.bold),),),
+  );
+}
 }
